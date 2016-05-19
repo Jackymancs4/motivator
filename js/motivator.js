@@ -16,14 +16,12 @@
 
     app.controller('MotivatorController', function($scope, $http) {
 
-        $http.get('js/quotes.json')
+        $http.get('assets/quotes.json')
             .then(function(res) {
-                $scope.quotes=res.data;
+                $scope.quotes = res.data;
 
                 var index = nrandom.integer(0, $scope.quotes.length - 1);
                 $scope.quote = $scope.quotes[index];
-
-                var a;
 
             });
 
@@ -33,8 +31,8 @@
 
         this.newQuote = function() {
 
-          var index = nrandom.integer(0, $scope.quotes.length - 1);
-          $scope.quote = $scope.quotes[index];
+            var index = nrandom.integer(0, $scope.quotes.length - 1);
+            $scope.quote = $scope.quotes[index];
 
         };
 
