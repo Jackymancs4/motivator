@@ -22,16 +22,22 @@
 
 <body ng-controller="MotivatorController as mmotivator">
     <div class="container-fluid">
-      <div class="col-md-2">
-      </div>
+        <div class="col-md-2">
+            <a ng-click="mmotivator.newQuote()" href="#">New</a>
+            <br>
+            <a ng-click="mmotivator.wikiQuote()" href="#">Wiki</a>
+        </div>
         <div class="col-md-8">
-            <blockquote>
-                <p>{{ mmotivator.getQuote().body }}</p>
-                <footer><cite title="Source Title">{{ mmotivator.getQuote().source }}</cite></footer>
+            <h1>The Motivator</h1>
+            <h3>Be motivated!</h3>
+            <br>
+            <blockquote class="quote-card">
+                <p ng-bind-html="mmotivator.getQuote().body | unsafe"></p>
+                <footer ng-show="mmotivator.getQuote().source"><cite title="Source Title">{{ mmotivator.getQuote().source }}</cite></footer>
             </blockquote>
-            <a ng-click="mmotivator.newQuote()" href="#">aaa</a>
         </div>
         <div class="col-md-2">
+            <a ng-click="mmotivator.newQuote()" href="#">BackEnd</a>
         </div>
     </div>
 </body>

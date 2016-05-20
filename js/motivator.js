@@ -14,6 +14,12 @@
 
     var quotes = [this.quote];
 
+    app.filter('unsafe', function($sce) {
+        return function(val) {
+            return $sce.trustAsHtml(val);
+        };
+    });
+
     app.controller('MotivatorController', function($scope, $http) {
 
         $http.get('assets/quotes.json')
@@ -33,6 +39,20 @@
 
             var index = nrandom.integer(0, $scope.quotes.length - 1);
             $scope.quote = $scope.quotes[index];
+
+        };
+
+        this.wikiQuote = function() {
+
+            WikiquoteApi.getRandomQuote("happiness",
+                function(newQuote) {
+                    $scope.quote.body = newQuote.quote;
+                    $scope.quote.source = false;
+                },
+                function(msg) {
+                    alert(msg);
+                }
+            );
 
         };
 
