@@ -23,9 +23,11 @@
 <body ng-controller="MotivatorController as mmotivator">
     <div class="container-fluid">
         <div class="col-md-2">
-            <a ng-click="mmotivator.newQuote()" href="#">New</a>
+            <a ng-click="mmotivator.newQuote()" href="#"><b>New Quote</b></a>
             <br>
-            <a ng-click="mmotivator.wikiQuote()" href="#">Wiki</a>
+            <a ng-click="mmotivator.wikiQuote()" href="#"><b>New Wiki Quote</b></a>
+            <br>
+            <a ng-click="mmotivator.wikiQuote()" href="#"><b>New Image Quote</b></a>
         </div>
         <div class="col-md-8">
             <h1>The Motivator</h1>
@@ -36,8 +38,13 @@
                 <footer ng-show="mmotivator.getQuote().source"><cite title="Source Title">{{ mmotivator.getQuote().source }}</cite></footer>
             </blockquote>
         </div>
-        <div class="col-md-2">
-            <a ng-click="mmotivator.newQuote()" href="#">BackEnd</a>
+        <div class="col-md-2 cl-right" ng-controller="BackEndController as backend">
+            <div class="backendCaller">
+                <a ng-click="backend.changeBackend()" href="#">BackEnd</a>
+            </div>
+            <div ng-show="backend.show" class="backend">
+                aaa
+            </div>
         </div>
     </div>
 </body>
